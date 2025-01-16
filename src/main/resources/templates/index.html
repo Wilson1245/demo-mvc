@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+Hello <span th:if="${session.account != null}" th:text="${session.account}">login id</span>!
+<h1>Index</h1>
+<ul th:if="${session.account == null}">
+    <li><a href="/auth/login">Login</a></li>
+    <li><a href="/auth/register">Register</a></li>
+</ul>
+<ul th:if="${session.account != null}">
+    <li><a href="/auth/logout">Logout</a></li>
+</ul>
+</body>
+</html>

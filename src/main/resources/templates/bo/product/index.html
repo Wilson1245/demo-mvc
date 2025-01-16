@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<h1>Product List</h1>
+<a th:href="@{/bo/product/add}">Add</a>
+<table border="1">
+    <tr>
+        <th>Product ID</th>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="product : ${productList}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.title}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.price}"></td>
+        <!--      <td><img th:src="${product.img}" width="100" height="100" alt=""></td>-->
+        <td><a th:href="@{/bo/product/edit(id=${product.id})}">Edit</a> <br>
+            <a th:href="@{/bo/product/delete(id=${product.id})}">Delete</a>
+        </td>
+</table>
+</body>
+</html>
